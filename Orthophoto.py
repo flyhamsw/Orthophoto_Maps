@@ -79,7 +79,8 @@ def rectify(img_fname, eo_fname, project_path, ground_height, sensor_width):
 
     print('Save the image in GeoTiff')
     start_time = time.time()
-    dst = './' + img_fname.split('.')[0]
+    img_rectified_fname = img_fname.split('.')[0] + '_rectified'
+    dst = os.path.join(project_path, img_rectified_fname)
     createGeoTiff(b, g, r, a, bbox, gsd, boundary_rows, boundary_cols, dst)
     print("--- %s seconds ---" % (time.time() - start_time))
 
@@ -91,7 +92,7 @@ if __name__ == '__main__':
     rectify(
         img_fname='DJI_0386.JPG',
         eo_fname='DJI_0386.txt',
-        project_path='./Data',
+        project_path='Data',
         ground_height=0.65,
         sensor_width=6.3
     )
