@@ -82,6 +82,7 @@ def rectify(img_fname, eo_fname, project_path, ground_height, sensor_width):
     img_rectified_fname = img_fname.split('.')[0] + '_rectified'
     dst = os.path.join(project_path, img_rectified_fname)
     createGeoTiff(b, g, r, a, bbox, gsd, boundary_rows, boundary_cols, dst)
+
     print("--- %s seconds ---" % (time.time() - start_time))
 
     print('*** Processing time per each image')
